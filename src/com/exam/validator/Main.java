@@ -59,6 +59,24 @@ public class Main {
 
     public static void main(String[] args) {
         List<Student> students = CSVReader.parse();
+        List<Student> studentsWithIncorrectAnswers = filterSudentsAndAnswers(students);
+        students.forEach(System.out::println);
+    }
+
+    private static List<Student> filterSudentsAndAnswers(List<Student> students) {
+        return students.stream()
+                       .peek(it -> removeCorrectAnswers(it))
+                       .filter(it -> !it.getAnswers().isEmpty())
+                       .collect(Collectors.toList());
+    }
+
+    private static void removeCorrectAnswers(Student student) {
+        student.setAnswers(student.getAnswers().entrySet().stream().filter(it -> answerIsIncorrect(it)).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)));
+    }
+
+    private static boolean answerIsIncorrect(Map.Entry<Integer, String> it) {
+        return correctAnswers.get(it.getKey())
+                             .equals(it.getValue());
     }
 }
 
