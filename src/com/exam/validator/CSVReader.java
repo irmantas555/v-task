@@ -10,6 +10,9 @@ import java.util.Map;
 
 class CSVReader {
 
+    CSVReader() {
+    }
+
     public static List<Student> parse() {
 
         String csvFile = "results.csv";

@@ -12,7 +12,7 @@ class Student {
     private String sittingLocation;
     private Map<Integer, String> answers = new HashMap<>();
 
-    private List<Student> cheatingPossibilities = new ArrayList<>();
+    private final List<Student> cheatingPossibilities = new ArrayList<>();
 
     Map<Integer, List<String>> neighboursAnswersMap = new HashMap<>();
 
@@ -22,6 +22,7 @@ class Student {
     Map<Integer, Set<Character>> dominantNeighbourOptions = new HashMap<>();
 
     Map<String, Integer> neighboursWithSimmilarBadAnswersCountMap = new HashMap<>();
+    Map<AnswerTypes, Integer> studentAnalysisMap = new HashMap<>();
 
     public String getName() {
         return name;
@@ -54,48 +55,28 @@ class Student {
         return cheatingPossibilities;
     }
 
-    void setCheatingPossibilities(List<Student> cheatingPossibilities) {
-        this.cheatingPossibilities = cheatingPossibilities;
-    }
-
     Map<Integer, List<String>> getNeighboursAnswersMap() {
         return neighboursAnswersMap;
-    }
-
-    void setNeighboursAnswersMap(Map<Integer, List<String>> neighboursAnswersMap) {
-        this.neighboursAnswersMap = neighboursAnswersMap;
     }
 
     List<Student> getIdenticalNeighbours() {
         return identicalNeighbours;
     }
 
-    void setIdenticalNeighbours(List<Student> identicalNeighbours) {
-        this.identicalNeighbours = identicalNeighbours;
-    }
-
     Map<Integer, Set<Character>> getCommonNeighbourOptions() {
         return commonNeighbourOptions;
-    }
-
-    void setCommonNeighbourOptions(Map<Integer, Set<Character>> commonNeighbourOptions) {
-        this.commonNeighbourOptions = commonNeighbourOptions;
     }
 
     Map<Integer, Set<Character>> getDominantNeighbourOptions() {
         return dominantNeighbourOptions;
     }
 
-    void setDominantNeighbourOptions(Map<Integer, Set<Character>> dominantNeighbourOptions) {
-        this.dominantNeighbourOptions = dominantNeighbourOptions;
-    }
-
     Map<String, Integer> getNeighboursWithSimmilarBadAnswersCountMap() {
         return neighboursWithSimmilarBadAnswersCountMap;
     }
 
-    void setNeighboursWithSimmilarBadAnswersCountMap(Map<String, Integer> neighboursWithSimmilarBadAnswersCountMap) {
-        this.neighboursWithSimmilarBadAnswersCountMap = neighboursWithSimmilarBadAnswersCountMap;
+    Map<AnswerTypes, Integer> getStudentAnalysisMap() {
+        return studentAnalysisMap;
     }
 
     @Override
