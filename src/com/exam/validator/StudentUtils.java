@@ -399,10 +399,10 @@ final class StudentUtils {
                     }
                     if (studentRow != null && neighbourRow != null) {
                         Integer diff = studentRow - neighbourRow;
-                        if (diff > 0) {cheat = neighbour.getName();} else if (diff > 0) {cheat = student.getName();}
+                        if (diff < 0) {cheat = neighbour.getName();} else if (diff > 0) {cheat = student.getName();}
                         System.out.printf("Cheater" + (cheat == "both" ? "s" : "") + " could be %s,", cheat);
                     }
-                    System.out.println("since student row is " + studentRow + " and neighbour row is " + neighbourRow);
+                    System.out.printf(" since %s row is %d and %s row is %d%n",student.getName(), studentRow,neighbour.getName(), neighbourRow);
                     System.out.println();
                 }
             }
